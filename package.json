@@ -1,0 +1,13 @@
+{
+  "name"         : "caffeine-scraper",
+  "version"      : "0.0.1",
+  "description"  : "get caffeine info.",
+  "main"         : "server.js",
+  "author"       : "Ben Saufley",
+  "dependencies" : {
+    "express"    : "latest",
+    "request"    : "latest",
+    "cheerio"    : "latest",
+    "underscore" : "latest"
+  }
+}
