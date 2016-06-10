@@ -1,0 +1,22 @@
+doctype html
+html(lang="en")
+  head
+    title Your Next Fantasy Novel
+    link(href='https://fonts.googleapis.com/css?family=IM+Fell+English:400italic|IM+Fell+Double+Pica+SC', rel='stylesheet', type='text/css')
+    link(rel="stylesheet", href="/assets/css/styles.css")
+    meta(name="description", content="The name of your next fantasy novel is…")
+  body(class=nameParams.bg.name)
+    h1
+      = nameParams.subject
+      |  
+      span of
+      |  
+      = nameParams.object
+    a.again(href="/") Again, Again!
+    .source
+      .right
+        | Photo by 
+        a(href=nameParams.bg.url)= nameParams.bg.owner
+      .left
+        | Site by 
+        a(href="http://bensaufley.com") Ben Saufley

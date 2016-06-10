@@ -1,13 +1,14 @@
 {
-  "name"         : "caffeine-scraper",
+  "name"         : "fantasy-namer",
   "version"      : "0.0.1",
-  "description"  : "get caffeine info.",
+  "description"  : "Your next fantasy novel",
   "main"         : "server.js",
   "author"       : "Ben Saufley",
   "dependencies" : {
     "express"    : "latest",
+    "inflection" : "latest",
     "request"    : "latest",
-    "cheerio"    : "latest",
-    "underscore" : "latest"
+    "underscore" : "latest",
+    "pug"        : "latest"
   }
 }

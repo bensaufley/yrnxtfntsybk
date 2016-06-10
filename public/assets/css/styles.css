@@ -1,0 +1,143 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+html {
+  height: 100%;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: sans-serif;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+h1,
+a.again {
+  margin: 0;
+  position: absolute;
+  text-align: center;
+}
+
+h1 {
+  top: 33%;
+  font-family: 'IM Fell Double Pica SC', serif;
+  font-size: 18vw;
+  left: 0;
+  line-height: 1;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 100%;
+}
+
+h1 span {
+  font-family: 'IM Fell English';
+  font-size: .7em;
+  font-style: italic;
+  vertical-align: middle;
+}
+
+a.again {
+  background: rgba(0, 0, 0, .7);
+  border-radius: 3px;
+  color: #ccc;
+  display: inline-block;
+  font-size: 4vw;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  left: 50%;
+  padding: .2em .4em;
+  position: absolute;
+  text-decoration: none;
+  -moz-transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  transition: .3s background, .3s color;
+  top: 66%;
+}
+
+a.again:hover {
+  background: rgba(0, 0, 0, .9);
+  color: #fff;
+}
+
+.castle {
+  background-image: url('/assets/images/castle.jpg');
+}
+
+.hills {
+  background-image: url('/assets/images/hills.jpg');
+}
+
+.puebla {
+  background-image: url('/assets/images/puebla.jpg');
+}
+
+.woods {
+  background-image: url('/assets/images/woods.jpg');
+}
+
+.castle h1 {
+  color: #012;
+  text-shadow: 0 0 1em #cef, 0 2px 2px #acd;
+}
+
+.hills h1 {
+  color: #123;
+  text-shadow: 0 0 1em #eff;
+}
+
+.puebla h1 {
+  color: #210;
+  text-shadow: 0 0 1em #ddd, 0 2px 2px #ddd;
+}
+
+.woods h1 {
+  color: #ffefcf;
+  text-shadow: 0 2px 1em #320, 0 -1px 2px #320;
+}
+
+.source {
+  background-color: rgba(0, 0, 0, .4);
+  bottom: 0;
+  color: #ccc;
+  left: 0;
+  font-size: 1rem;
+  padding: .5rem;
+  position: absolute;
+  width: 100%;
+}
+
+.source a,
+.source a:hover,
+.source a:visited {
+  color: #ccc;
+}
+
+.right {
+  float: right;
+}
+
+
+@media screen and (orientation: landscape) {
+  h1 {
+    font-size: 18vh;
+  }
+
+  a.again {
+    font-size: 4vh;
+  }
+}
