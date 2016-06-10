@@ -40,5 +40,13 @@
   "might",
   "fortitude",
   "prestige",
-  "magick"
+  "magick",
+  "honor",
+  "valor",
+  "thorn",
+  "steed",
+  "squire",
+  "lance",
+  "shield",
+  "gauntlet"
 ]
