@@ -5,27 +5,59 @@ var express    = require('express'),
     nouns      = require('./data/nouns.json'),
     bgs        = require('./data/backgrounds');
 
+var randBool = () => Number(Math.random() > 0.5);
+var randNoun = () => Math.floor(Math.random() * nouns.length);
+var randBg = () => Math.floor(Math.random() * bgs.length);
+
 var createPath = function() {
   var values = [];
   while (values.length < 2) {
-    values.push(Math.floor(Math.random() * nouns.length));
+    values.push(randNoun());
     values = _.uniq(values);
   };
   while (values.length < 6) {
-    values.push(Math.floor(Math.random() * 2));
+    values.push(randBool());
   }
-  values.push(Math.floor(Math.random() * bgs.length));
+  values.push(randBg());
+  if (Math.random() < 0.5) {
+    let secondNoun;
+    do {
+      secondNoun = randNoun();
+    } while (values.slice(0, 2).includes(secondNoun));
+    values.push(secondNoun, randBool(), randBool());
+  }
   return values.map(function(val) { return (val + 256).toString(16); }).join(':');
 };
+
+/**
+ * 
+ * @param {number} article 
+ * @param {number} noun 
+ * @param {number} plural 
+ * @returns {string}
+ */
+var formatNoun = (article, noun, plural) => (article ? 'the ' : '') + inflection.titleize(plural ? inflection.pluralize(nouns[noun]) : nouns[noun]);
 
 var getParams = function(namepath) {
   var params,
       indices = namepath.split(':').map(function(val) { return parseInt(val, 16) - 256; });
   if (indices.length < 7) { return false; }
+  var [
+    subject,
+    object,
+    subjectPlural,
+    objectPlural,
+    subjectArticle,
+    objectArticle,
+    bg,
+    extraObject,
+    extraObjectPlural,
+    extraObjectArticle,
+  ] = indices;
   params = {
-    subject: (indices[4] ? 'the ' : '') + inflection.titleize(indices[2] ? inflection.pluralize(nouns[indices[0]]) : nouns[indices[0]]),
-    object: (indices[5] ? 'the ' : '') + inflection.titleize(indices[3] ? inflection.pluralize(nouns[indices[1]]) : nouns[indices[1]]),
-    bg: bgs[indices[6]]
+    subject: formatNoun(subjectArticle, subject, subjectPlural),
+    object: formatNoun(objectArticle, object, objectPlural) + (extraObject ? ' and ' + formatNoun(extraObjectArticle, extraObject, extraObjectPlural) : ''),
+    bg: bgs[bg]
   };
   return params;
 };

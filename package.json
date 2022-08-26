@@ -1,14 +1,14 @@
 {
-  "name"         : "fantasy-namer",
-  "version"      : "0.0.1",
-  "description"  : "Your next fantasy novel",
-  "main"         : "server.js",
-  "author"       : "Ben Saufley",
-  "dependencies" : {
-    "express"    : "latest",
-    "inflection" : "latest",
-    "request"    : "latest",
-    "underscore" : "latest",
-    "pug"        : "latest"
+  "name": "fantasy-namer",
+  "version": "0.0.1",
+  "description": "Your next fantasy novel",
+  "main": "server.js",
+  "author": "Ben Saufley",
+  "dependencies": {
+    "express": "latest",
+    "inflection": "latest",
+    "request": "latest",
+    "underscore": "latest",
+    "pug": "latest"
   }
 }
