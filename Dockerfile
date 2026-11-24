@@ -12,9 +12,6 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application source code
-COPY . .
-
 # Stage 2: Create the Final Production Image
 # We use node:26-slim as a minimal runtime image.
 FROM node:26-slim
@@ -26,8 +23,10 @@ WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/package*.json ./
 RUN npm install --only=production
 
-COPY public views data ./
-COPY server.js ./
+COPY public ./public
+COPY data ./data
+COPY views ./views
+COPY server.js .
 
 # Expose the port your app runs on
 ENV PORT=8080
