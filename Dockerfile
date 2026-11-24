@@ -26,7 +26,7 @@ WORKDIR /usr/src/app
 COPY --from=build /usr/src/app/package*.json ./
 RUN npm install --only=production
 
-COPY public views ./
+COPY public views data ./
 COPY server.js ./
 
 # Expose the port your app runs on
